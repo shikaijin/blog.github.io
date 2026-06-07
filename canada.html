@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>カナダでの暮らし | 中国・カナダ・日本をめぐる暮らし</title>
 
@@ -16,7 +16,7 @@
 --sub:#64748b;
 --card:#f8fafc;
 --line:#e5e7eb;
---accent:#2563eb;
+--accent:#dc2626;
 }
 
 body.dark{
@@ -33,6 +33,10 @@ padding:0;
 box-sizing:border-box;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 font-family:"Noto Sans JP",sans-serif;
 background:var(--bg);
@@ -42,26 +46,8 @@ transition:.4s;
 }
 
 img{
-width:100%;
+max-width:100%;
 display:block;
-}
-
-nav{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-padding:20px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(255,255,255,.8);
-backdrop-filter:blur(20px);
-z-index:999;
-}
-
-body.dark nav{
-background:rgba(15,23,42,.8);
 }
 
 a{
@@ -69,16 +55,51 @@ text-decoration:none;
 color:inherit;
 }
 
+/* NAV */
+
+nav{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+
+padding:20px 8%;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+background:rgba(255,255,255,.8);
+
+backdrop-filter:blur(20px);
+
+z-index:999;
+}
+
+body.dark nav{
+background:rgba(15,23,42,.8);
+}
+
 .logo{
 font-weight:700;
+font-size:1.1rem;
+}
+
+.menu{
+display:flex;
+gap:25px;
+align-items:center;
 }
 
 .toggle{
 cursor:pointer;
 padding:8px 14px;
-border-radius:999px;
 border:1px solid var(--line);
+border-radius:999px;
 }
+
+/* HERO */
 
 .hero{
 
@@ -89,7 +110,7 @@ linear-gradient(
 rgba(0,0,0,.35),
 rgba(0,0,0,.55)
 ),
-url("assets/images/canada/hero.jpg");
+url("assets/images/china/hero.jpg");
 
 background-size:cover;
 background-position:center;
@@ -99,8 +120,12 @@ justify-content:center;
 align-items:center;
 
 text-align:center;
-
 color:white;
+}
+
+.hero-content{
+max-width:900px;
+padding:20px;
 }
 
 .hero h1{
@@ -108,68 +133,208 @@ font-size:6rem;
 margin-bottom:20px;
 }
 
-.hero p{
-font-size:1.3rem;
+.hero-sub{
+font-size:1.5rem;
 font-weight:300;
+margin-bottom:25px;
 }
+
+.hero-desc{
+font-size:1.1rem;
+opacity:.9;
+}
+
+/* scroll */
+
+.scroll-down{
+
+position:absolute;
+bottom:40px;
+left:50%;
+
+transform:translateX(-50%);
+
+color:white;
+font-size:.9rem;
+letter-spacing:2px;
+}
+
+.scroll-down::after{
+
+content:"";
+
+display:block;
+
+width:2px;
+height:60px;
+
+background:white;
+
+margin:10px auto 0;
+
+animation:scroll 2s infinite;
+}
+
+@keyframes scroll{
+
+0%{
+transform:translateY(0);
+opacity:1;
+}
+
+100%{
+transform:translateY(20px);
+opacity:0;
+}
+}
+
+/* layout */
 
 .container{
 width:min(1000px,90%);
 margin:auto;
 }
 
+.toc{
+
+margin-top:-70px;
+
+background:var(--card);
+
+padding:50px;
+
+border-radius:30px;
+
+position:relative;
+z-index:10;
+
+box-shadow:0 20px 40px rgba(0,0,0,.08);
+}
+
+.toc h2{
+margin-bottom:20px;
+}
+
+.toc ul{
+list-style:none;
+}
+
+.toc li{
+margin:12px 0;
+}
+
+.toc a{
+color:var(--accent);
+}
+
 .section-title{
+
 font-size:3rem;
-text-align:center;
+
 margin:120px 0 80px;
+
+text-align:center;
 }
 
 .story{
+
 margin-bottom:140px;
 }
 
 .story-banner{
+
+width:100%;
 height:550px;
+
 object-fit:cover;
+
 border-radius:30px;
+
 margin-bottom:50px;
+
+box-shadow:0 25px 60px rgba(0,0,0,.15);
 }
 
 .story-tag{
+
 color:var(--accent);
-font-size:.9rem;
+
+font-size:.85rem;
+
 font-weight:700;
+
 letter-spacing:2px;
 }
 
 .story h3{
+
 font-size:2.3rem;
+
 margin:15px 0 25px;
 }
 
 .lead{
+
 font-size:1.3rem;
+
+line-height:1.9;
+
 color:var(--sub);
+
 margin-bottom:35px;
 }
 
 .story p{
+
+font-size:1.05rem;
+
 margin-bottom:20px;
+
+text-align:justify;
 }
 
 footer{
-padding:80px;
+
+padding:80px 0;
+
 text-align:center;
+
 border-top:1px solid var(--line);
 }
 
 .button{
+
 display:inline-block;
+
 padding:12px 25px;
+
 background:var(--accent);
+
 color:white;
+
 border-radius:999px;
+
 margin:10px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:3rem;
+}
+
+.story-banner{
+height:280px;
+}
+
+.section-title{
+font-size:2rem;
+}
+
+.story h3{
+font-size:1.6rem;
+}
+
 }
 
 </style>
@@ -179,16 +344,20 @@ margin:10px;
 
 <nav>
 
-<a href="index.html" class="logo">
-Shikai Jin
-</a>
+
+<div class="menu">
+
+<a href="index.html">ホムペ</a>
 
 <div class="toggle"
 onclick="document.body.classList.toggle('dark')">
 🌙
 </div>
 
+</div>
+
 </nav>
+
 
 <header class="hero">
 
