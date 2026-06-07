@@ -3,30 +3,543 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>中国での暮らし | Shikai Jin</title>
+
+<title>中国での暮らし | 中国・カナダ・日本をめぐる暮らし</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+
 <style>
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:0;line-height:1.9;color:#222}
-header{height:60vh;background:#333;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center}
-main{max-width:900px;margin:auto;padding:40px 20px}
-section{margin:60px 0}
-.placeholder{width:100%;height:420px;background:#e5e7eb;border-radius:20px}
-nav{position:sticky;top:0;background:#fff;padding:15px;border-bottom:1px solid #ddd}
+
+:root{
+--bg:#ffffff;
+--text:#111827;
+--sub:#64748b;
+--card:#f8fafc;
+--line:#e5e7eb;
+--accent:#dc2626;
+}
+
+body.dark{
+--bg:#0f172a;
+--text:#f8fafc;
+--sub:#94a3b8;
+--card:#1e293b;
+--line:#334155;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:"Noto Sans JP",sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:2;
+transition:.4s;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+/* NAV */
+
+nav{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+
+padding:20px 8%;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+background:rgba(255,255,255,.8);
+
+backdrop-filter:blur(20px);
+
+z-index:999;
+}
+
+body.dark nav{
+background:rgba(15,23,42,.8);
+}
+
+.logo{
+font-weight:700;
+font-size:1.1rem;
+}
+
+.menu{
+display:flex;
+gap:25px;
+align-items:center;
+}
+
+.toggle{
+cursor:pointer;
+padding:8px 14px;
+border:1px solid var(--line);
+border-radius:999px;
+}
+
+/* HERO */
+
+.hero{
+
+height:100vh;
+
+background:
+linear-gradient(
+rgba(0,0,0,.35),
+rgba(0,0,0,.55)
+),
+url("assets/images/china/hero.jpg");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+color:white;
+}
+
+.hero-content{
+max-width:900px;
+padding:20px;
+}
+
+.hero h1{
+font-size:6rem;
+margin-bottom:20px;
+}
+
+.hero-sub{
+font-size:1.5rem;
+font-weight:300;
+margin-bottom:25px;
+}
+
+.hero-desc{
+font-size:1.1rem;
+opacity:.9;
+}
+
+/* scroll */
+
+.scroll-down{
+
+position:absolute;
+bottom:40px;
+left:50%;
+
+transform:translateX(-50%);
+
+color:white;
+font-size:.9rem;
+letter-spacing:2px;
+}
+
+.scroll-down::after{
+
+content:"";
+
+display:block;
+
+width:2px;
+height:60px;
+
+background:white;
+
+margin:10px auto 0;
+
+animation:scroll 2s infinite;
+}
+
+@keyframes scroll{
+
+0%{
+transform:translateY(0);
+opacity:1;
+}
+
+100%{
+transform:translateY(20px);
+opacity:0;
+}
+}
+
+/* layout */
+
+.container{
+width:min(1000px,90%);
+margin:auto;
+}
+
+.toc{
+
+margin-top:-70px;
+
+background:var(--card);
+
+padding:50px;
+
+border-radius:30px;
+
+position:relative;
+z-index:10;
+
+box-shadow:0 20px 40px rgba(0,0,0,.08);
+}
+
+.toc h2{
+margin-bottom:20px;
+}
+
+.toc ul{
+list-style:none;
+}
+
+.toc li{
+margin:12px 0;
+}
+
+.toc a{
+color:var(--accent);
+}
+
+.section-title{
+
+font-size:3rem;
+
+margin:120px 0 80px;
+
+text-align:center;
+}
+
+.story{
+
+margin-bottom:140px;
+}
+
+.story-banner{
+
+width:100%;
+height:550px;
+
+object-fit:cover;
+
+border-radius:30px;
+
+margin-bottom:50px;
+
+box-shadow:0 25px 60px rgba(0,0,0,.15);
+}
+
+.story-tag{
+
+color:var(--accent);
+
+font-size:.85rem;
+
+font-weight:700;
+
+letter-spacing:2px;
+}
+
+.story h3{
+
+font-size:2.3rem;
+
+margin:15px 0 25px;
+}
+
+.lead{
+
+font-size:1.3rem;
+
+line-height:1.9;
+
+color:var(--sub);
+
+margin-bottom:35px;
+}
+
+.story p{
+
+font-size:1.05rem;
+
+margin-bottom:20px;
+
+text-align:justify;
+}
+
+footer{
+
+padding:80px 0;
+
+text-align:center;
+
+border-top:1px solid var(--line);
+}
+
+.button{
+
+display:inline-block;
+
+padding:12px 25px;
+
+background:var(--accent);
+
+color:white;
+
+border-radius:999px;
+
+margin:10px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:3rem;
+}
+
+.story-banner{
+height:280px;
+}
+
+.section-title{
+font-size:2rem;
+}
+
+.story h3{
+font-size:1.6rem;
+}
+
+}
+
 </style>
 </head>
+
 <body>
-<nav>Shikai Jin | 中国での暮らし</nav>
-<header><div><h1>中国での暮らし</h1><p>熱気・努力・つながり</p></div></header>
-<main>
-<h2>学校生活</h2>
-<section><h3>毎日が勉強中心だった中学校生活</h3><div class="placeholder"></div></section>
-<section><h3>同じクラスで過ごした毎日</h3><div class="placeholder"></div></section>
-<section><h3>競争の中にあったたすけあい</h3><div class="placeholder"></div></section>
-<h2>食文化</h2>
-<section><div class="placeholder"></div></section>
-<h2>生活のペースとサービス</h2>
-<section><div class="placeholder"></div></section>
-<h2>人間関係</h2>
-<section><div class="placeholder"></div></section>
-</main>
-</body>
-</html>
+
+<nav>
+
+<div class="logo">
+<a href="index.html">
+Shikai Jin
+</a>
+</div>
+
+<div class="menu">
+
+<a href="index.html">Home</a>
+
+<div class="toggle"
+onclick="document.body.classList.toggle('dark')">
+🌙
+</div>
+
+</div>
+
+</nav>
+
+<header class="hero">
+
+<div class="hero-content">
+
+<h1>中国での暮らし</h1>
+
+<p class="hero-sub">
+Shanghai, China
+</p>
+
+<p class="hero-desc">
+熱気・努力・つながり
+</p>
+
+</div>
+
+<div class="scroll-down">
+SCROLL
+</div>
+
+</header>
+
+<div class="container">
+
+<div class="toc">
+
+<h2>目次</h2>
+
+<ul>
+<li><a href="#school">学校生活</a></li>
+<li><a href="#food">食文化</a></li>
+<li><a href="#life">生活のペースとサービス</a></li>
+<li><a href="#people">人間関係</a></li>
+</ul>
+
+</div>
+
+</div>
+
+<section id="school">
+
+<div class="container">
+
+<h2 class="section-title">
+学校生活
+</h2>
+
+<!-- Story 1 -->
+
+<article class="story">
+
+<img
+src="assets/images/china/classroom.jpg"
+class="story-banner">
+
+<div class="story-tag">
+SCHOOL LIFE
+</div>
+
+<h3>
+毎日が勉強中心だった中学校生活
+</h3>
+
+<p class="lead">
+朝早く学校へ行き、
+夜遅くまで勉強する毎日。
+受験に向かう緊張感の中で、
+私は努力する力を身につけました。
+</p>
+
+<p>
+中学生のころ、私の毎日はいつも勉強中心でした。朝早く学校に行って、夜遅くまで授業や宿題がありました。
+</p>
+
+<p>
+特に9年生になると、高校受験が近づき、教室の雰囲気も前よりずっと緊張していたことを覚えています。
+</p>
+
+<p>
+放課後、多くの学生はそのまま塾へ行きました。私も毎日重いかばんを持って塾へ向かい、家に帰るころには外はもう暗くなっていました。
+</p>
+
+<p>
+家に帰ってからも宿題があって、寝る前まで問題集を解いていました。当時は毎日とても忙しくて、どうしてこんなに勉強しなければならないのだろうと思うこともありました。
+</p>
+
+</article>
+
+<!-- Story 2 -->
+
+<article class="story">
+
+<img
+src="assets/images/china/classmates.jpg"
+class="story-banner">
+
+<div class="story-tag">
+CLASSMATES
+</div>
+
+<h3>
+同じクラスで過ごした毎日
+</h3>
+
+<p class="lead">
+毎日同じ教室、
+同じ仲間たち。
+その時間は、
+家族のようなつながりを育ててくれました。
+</p>
+
+<p>
+中国の学校ではずっと同じ教室で過ごします。クラスメイトも担任の先生もほとんど変わりません。
+</p>
+
+<p>
+毎日同じ人たちと一緒に勉強し、運動会や行事もみんなで参加していました。
+</p>
+
+<p>
+そのため、クラスの友達とは家族のような近い関係になっていたと思います。
+</p>
+
+<p>
+授業の前にみんなで朝読書をしたり、休み時間に宿題を見せ合ったり、おしゃべりしたりする時間もありました。
+</p>
+
+<p>
+勉強は大変でしたが、毎日同じ時間を一緒に過ごしていたので、自然と強い一体感が生まれていました。
+</p>
+
+</article>
+
+<!-- Story 3 -->
+
+<article class="story">
+
+<img
+src="assets/images/china/study-group.jpg"
+class="story-banner">
+
+<div class="story-tag">
+COMPETITION & SUPPORT
+</div>
+
+<h3>
+競争の中にあったたすけあい
+</h3>
+
+<p class="lead">
+激しい競争の中にも、
+仲間と支え合う温かさがありました。
+</p>
+
+<p>
+テストの前になると、クラス全体がとても緊張した雰囲気になりました。みんな順位を気にしていて、競争もはげしかったです。
+</p>
+
+<p>
+しかし、その一方で、分からない問題があると友達同士で教え合うこともよくありました。
+</p>
+
+<p>
+「この問題分かった？」「ノート見せて」
+そんな会話をしながら、一緒に遅くまで勉強していました。
+</p>
+
+<p>
+また、先生たちもとても責任感が強く、学生一人ひとりをこまかく見ていました。
+</p>
+
+<p>
+時には厳しいと感じることもありましたが、今振り返ると、先生たちは本気で私たちのことを考えてくれていたのだと思います。
+</p>
+
+</article>
+
+</div>
+
+</section>
