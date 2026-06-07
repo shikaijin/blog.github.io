@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>中国・カナダ・日本をめぐる暮らし | Shikai Jin</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--bg:#ffffff;
+--card:#f8fafc;
+--text:#111827;
+--sub:#6b7280;
+--line:#e5e7eb;
+--accent:#2563eb;
+}
+
+.dark{
+--bg:#0f172a;
+--card:#1e293b;
+--text:#f8fafc;
+--sub:#94a3b8;
+--line:#334155;
+--accent:#60a5fa;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:"Noto Sans JP",sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:2;
+transition:.4s;
+overflow-x:hidden;
+}
+
+/* ---------------- NAV ---------------- */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+background:rgba(255,255,255,.75);
+backdrop-filter:blur(20px);
+
+border-bottom:1px solid rgba(255,255,255,.1);
+
+z-index:999;
+}
+
+.dark nav{
+background:rgba(15,23,42,.75);
+}
+
+.logo{
+font-weight:700;
+letter-spacing:1px;
+}
+
+.menu{
+display:flex;
+gap:25px;
+align-items:center;
+}
+
+.menu a{
+color:inherit;
+text-decoration:none;
+font-size:.95rem;
+}
+
+.toggle{
+cursor:pointer;
+padding:8px 14px;
+border:1px solid var(--line);
+border-radius:999px;
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero{
+
+position:relative;
+
+height:100vh;
+
+background:
+linear-gradient(
+rgba(0,0,0,.35),
+rgba(0,0,0,.55)
+),
+url("images/hero.jpg");
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+overflow:hidden;
+}
+
+.hero-content{
+
+position:relative;
+z-index:2;
+
+max-width:900px;
+padding:30px;
+color:white;
+
+}
+
+.hero-tag{
+
+display:inline-block;
+
+padding:10px 22px;
+
+border:1px solid rgba(255,255,255,.4);
+
+border-radius:999px;
+
+backdrop-filter:blur(12px);
+
+font-size:.85rem;
+
+letter-spacing:3px;
+
+margin-bottom:30px;
+
+animation:fadeUp 1s ease;
+}
+
+.hero h1{
+
+font-size:5rem;
+font-weight:700;
+line-height:1.15;
+
+margin-bottom:25px;
+
+animation:fadeUp 1.2s ease;
+}
+
+.hero p{
+
+font-size:1.5rem;
+font-weight:300;
+line-height:1.8;
+
+animation:fadeUp 1.5s ease;
+}
+
+.hero::after{
+
+content:"";
+
+position:absolute;
+left:0;
+right:0;
+bottom:0;
+
+height:200px;
+
+background:
+linear-gradient(
+to bottom,
+transparent,
+var(--bg)
+);
+
+}
+
+/* Scroll Down */
+
+.scroll-indicator{
+
+position:absolute;
+
+bottom:40px;
+left:50%;
+
+transform:translateX(-50%);
+
+display:flex;
+flex-direction:column;
+align-items:center;
+
+gap:12px;
+
+color:white;
+
+text-decoration:none;
+
+z-index:5;
+
+animation:float 2s infinite;
+}
+
+.mouse{
+
+width:30px;
+height:50px;
+
+border:2px solid white;
+
+border-radius:20px;
+
+display:flex;
+justify-content:center;
+
+padding-top:8px;
+}
+
+.wheel{
+
+width:4px;
+height:10px;
+
+background:white;
+
+border-radius:10px;
+
+animation:scrollwheel 1.5s infinite;
+}
+
+@keyframes scrollwheel{
+0%{
+opacity:1;
+transform:translateY(0);
+}
+100%{
+opacity:0;
+transform:translateY(12px);
+}
+}
+
+@keyframes float{
+0%,100%{
+transform:translate(-50%,0);
+}
+50%{
+transform:translate(-50%,10px);
+}
+}
+
+/* ---------------- CONTENT ---------------- */
+
+.container{
+width:min(1000px,90%);
+margin:auto;
+}
+
+section{
+padding:120px 0;
+}
+
+.section-title{
+text-align:center;
+font-size:2.5rem;
+margin-bottom:60px;
+}
+
+/* Intro */
+
+.intro{
+max-width:850px;
+margin:auto;
+font-size:1.1rem;
+}
+
+.intro p{
+margin-bottom:24px;
+}
+
+/* Timeline */
+
+.timeline{
+
+max-width:700px;
+margin:auto;
+position:relative;
+}
+
+.timeline::before{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+
+top:0;
+bottom:0;
+
+width:3px;
+
+background:var(--line);
+
+transform:translateX(-50%);
+}
+
+.timeline-item{
+text-align:center;
+margin-bottom:80px;
+position:relative;
+}
+
+.dot{
+width:22px;
+height:22px;
+background:var(--accent);
+border-radius:50%;
+margin:auto;
+margin-bottom:20px;
+}
+
+.timeline-item h3{
+font-size:1.7rem;
+margin-bottom:10px;
+}
+
+.timeline-item p{
+color:var(--sub);
+}
+
+/* Cards */
+
+.cards{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:35px;
+}
+
+.card{
+
+background:var(--card);
+
+border-radius:24px;
+
+overflow:hidden;
+
+transition:.4s;
+
+text-decoration:none;
+
+color:inherit;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+width:100%;
+height:240px;
+object-fit:cover;
+}
+
+.card-content{
+padding:30px;
+}
+
+.card h3{
+margin-bottom:15px;
+}
+
+.card p{
+color:var(--sub);
+}
+
+.button{
+
+display:inline-block;
+
+margin-top:20px;
+
+padding:10px 20px;
+
+background:var(--accent);
+
+color:white;
+
+border-radius:999px;
+}
+
+/* Reflection */
+
+.reflection{
+
+background:var(--card);
+
+padding:70px;
+
+border-radius:30px;
+
+text-align:center;
+}
+
+.reflection p{
+max-width:750px;
+margin:auto;
+}
+
+/* Footer */
+
+footer{
+
+padding:60px;
+
+text-align:center;
+
+border-top:1px solid var(--line);
+
+color:var(--sub);
+}
+
+/* Animation */
+
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.fade.show{
+opacity:1;
+transform:none;
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:none;
+}
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:2.8rem;
+}
+
+.hero p{
+font-size:1.1rem;
+}
+
+.hero-tag{
+font-size:.75rem;
+}
+
+.timeline::before{
+left:20px;
+}
+
+.timeline-item{
+text-align:left;
+padding-left:50px;
+}
+
+.dot{
+margin-left:10px;
+}
+
+.reflection{
+padding:40px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+Shikai Jin
+</div>
+
+<div class="menu">
+
+<a href="#about">前書き</a>
+<a href="#journey">Journey</a>
+<a href="#stories">Stories</a>
+<a href="reflection.html">比較とまとめ</a>
+
+<div class="toggle" onclick="toggleDark()">
+🌙
+</div>
+
+</div>
+
+</nav>
+
+<header class="hero">
+
+<div class="hero-content">
+
+
+<h1>
+中国・カナダ・日本をめぐる暮らし
+</h1>
+
+<p>
+上海の熱気、<br>
+カナダの自由、<br>
+日本のやさしさ
+</p>
+
+</div>
+
+<a href="#about" class="scroll-indicator">
+
+<div class="mouse">
+<div class="wheel"></div>
+</div>
+
+<span>Scroll Down</span>
+
+</a>
+
+</header>
+
+<section id="about" class="fade">
+
+<div class="container">
+
+<h2 class="section-title">
+前書き
+</h2>
+
+<div class="intro">
+
+<p>
+もし三つの雰囲気で自分の成長を表すなら、上海の熱気あるにぎやかさ、カナダの自由でゆったりした空気、日本の静かでやさしい雰囲気だと思います。
+</p>
+
+<p>
+子どものころから、三つの都市で、まったく違う生活環境を経験してきました。
+</p>
+
+<p>
+スピードが速く、人の活気にあふれた中国の大都市、ゆっくりした時間が流れ、人とのつながりを大切にするカナダの町、そして静かで落ち着きがあり、細かい気配りのある日本の生活です。
+</p>
+
+<p>
+このブログでは、自分が実際に体験した小さな日常の出来事を通して、三つの国の生活の違いや魅力を伝えたいと思います。
+</p>
+
+<p>
+そして、異文化の中で生活した経験や感じたことについても書いていきたいです。
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="journey" class="fade">
+
+<div class="container">
+
+<h2 class="section-title">
+My Journey
+</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<div class="dot"></div>
+<h3>上海</h3>
+<p>熱気・努力・人とのつながり</p>
+</div>
+
+<div class="timeline-item">
+<div class="dot"></div>
+<h3>カナダ</h3>
+<p>自由・多様性・自主性</p>
+</div>
+
+<div class="timeline-item">
+<div class="dot"></div>
+<h3>東京</h3>
+<p>配慮・協調・思いやり</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="stories" class="fade">
+
+<div class="container">
+
+<h2 class="section-title">
+Stories
+</h2>
+
+<div class="cards">
+
+<a href="china.html" class="card">
+
+<img src="images/china.jpg">
+
+<div class="card-content">
+
+<h3>中国での暮らし</h3>
+
+<p>
+上海で育った日々。学校生活、食文化、人とのつながり、活気ある都市の記憶。
+</p>
+
+<div class="button">
+続きを読む
+</div>
+
+</div>
+
+</a>
+
+<a href="canada.html" class="card">
+
+<img src="images/canada.jpg">
+
+<div class="card-content">
+
+<h3>カナダでの暮らし</h3>
+
+<p>
+自由な教育、多文化社会、そして多様性との出会い。
+</p>
+
+<div class="button">
+続きを読む
+</div>
+
+</div>
+
+</a>
+
+<a href="japan.html" class="card">
+
+<img src="images/japan.jpg">
+
+<div class="card-content">
+
+<h3>日本での暮らし</h3>
+
+<p>
+大学生活を通して学んだ思いやりと配慮、人とのつながり。
+</p>
+
+<div class="button">
+続きを読む
+</div>
+
+</div>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="fade">
+
+<div class="container">
+
+<div class="reflection">
+
+<h2 class="section-title">
+比較とまとめ
+</h2>
+
+<p>
+
+中国では努力すること、
+カナダでは多様性を受け入れること、
+日本では周囲への配慮と思いやりを学びました。
+
+三つの国での経験を通して、
+異なる価値観を理解し、
+受け入れることの大切さを知りました。
+
+</p>
+
+<a href="reflection.html" class="button">
+続きを読む
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Shikai Jin
+
+<br><br>
+
+中国・カナダ・日本をめぐる暮らし
+
+</footer>
+
+<script>
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+});
+
+document.querySelectorAll(".fade").forEach(el=>{
+
+observer.observe(el);
+
+});
+
+function toggleDark(){
+
+document.body.classList.toggle("dark");
+
+}
+
+</script>
+
+</body>
+</html>
