@@ -1274,13 +1274,33 @@ FOOTER
 
 <footer>
 
-<h3>
+<h3 style="margin-bottom:20px;">
 中国・カナダ・日本をめぐる暮らし
 </h3>
 
+<div>
 
+<a href="china.html" class="button">
+← 中国での暮らし
+</a>
+
+<a href="japan.html" class="button">
+日本での暮らし →
+</a>
+
+</div>
 
 </footer>
+
+<script>
+
+const toggle=document.querySelector('.toggle');
+
+toggle.addEventListener('click',()=>{
+document.body.classList.toggle('dark');
+});
+
+</script>
 
 </body>
 </html>
