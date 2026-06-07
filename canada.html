@@ -12,19 +12,17 @@
 
 :root{
 --bg:#ffffff;
---text:#111827;
---sub:#64748b;
---card:#f8fafc;
---line:#e5e7eb;
---accent:#dc2626;
+--text:#111;
+--sub:#666;
+--card:#f5f5f7;
+--accent:#0071e3;
 }
 
 body.dark{
---bg:#0f172a;
---text:#f8fafc;
---sub:#94a3b8;
---card:#1e293b;
---line:#334155;
+--bg:#000;
+--text:#fff;
+--sub:#aaa;
+--card:#1d1d1f;
 }
 
 *{
@@ -45,61 +43,50 @@ line-height:2;
 transition:.4s;
 }
 
-img{
-max-width:100%;
-display:block;
-}
-
 a{
 text-decoration:none;
 color:inherit;
 }
 
-/* NAV */
+img{
+width:100%;
+display:block;
+border-radius:24px;
+}
 
 nav{
-
 position:fixed;
 top:0;
 left:0;
-width:100%;
+right:0;
+z-index:1000;
 
-padding:20px 8%;
+backdrop-filter:blur(20px);
+background:rgba(255,255,255,.75);
 
 display:flex;
 justify-content:space-between;
 align-items:center;
 
-background:rgba(255,255,255,.8);
-
-backdrop-filter:blur(20px);
-
-z-index:999;
+padding:18px 60px;
 }
 
 body.dark nav{
-background:rgba(15,23,42,.8);
+background:rgba(0,0,0,.75);
 }
 
 .logo{
 font-weight:700;
-font-size:1.1rem;
 }
 
 .menu{
 display:flex;
-gap:25px;
-align-items:center;
+gap:30px;
 }
 
 .toggle{
 cursor:pointer;
-padding:8px 14px;
-border:1px solid var(--line);
-border-radius:999px;
 }
-
-/* HERO */
 
 .hero{
 
@@ -110,14 +97,14 @@ linear-gradient(
 rgba(0,0,0,.35),
 rgba(0,0,0,.55)
 ),
-url("assets/images/china/hero.jpg");
+url("assets/images/canada/hero.jpg");
 
 background-size:cover;
 background-position:center;
 
 display:flex;
-justify-content:center;
 align-items:center;
+justify-content:center;
 
 text-align:center;
 color:white;
@@ -125,90 +112,59 @@ color:white;
 
 .hero-content{
 max-width:900px;
-padding:20px;
+padding:40px;
 }
 
 .hero h1{
-font-size:6rem;
+font-size:5rem;
+font-weight:700;
 margin-bottom:20px;
 }
 
 .hero-sub{
-font-size:1.5rem;
-font-weight:300;
-margin-bottom:25px;
-}
-
-.hero-desc{
-font-size:1.1rem;
+font-size:1.3rem;
+letter-spacing:4px;
+margin-bottom:20px;
 opacity:.9;
 }
 
-/* scroll */
+.hero-desc{
+font-size:1.2rem;
+opacity:.9;
+}
 
 .scroll-down{
 
 position:absolute;
 bottom:40px;
 left:50%;
-
 transform:translateX(-50%);
 
-color:white;
-font-size:.9rem;
-letter-spacing:2px;
+font-size:.8rem;
+letter-spacing:4px;
+
+animation:float 2s infinite;
 }
 
-.scroll-down::after{
-
-content:"";
-
-display:block;
-
-width:2px;
-height:60px;
-
-background:white;
-
-margin:10px auto 0;
-
-animation:scroll 2s infinite;
+@keyframes float{
+0%{transform:translate(-50%,0);}
+50%{transform:translate(-50%,10px);}
+100%{transform:translate(-50%,0);}
 }
-
-@keyframes scroll{
-
-0%{
-transform:translateY(0);
-opacity:1;
-}
-
-100%{
-transform:translateY(20px);
-opacity:0;
-}
-}
-
-/* layout */
 
 .container{
-width:min(1000px,90%);
+max-width:1000px;
 margin:auto;
+padding:120px 30px;
 }
 
 .toc{
-
-margin-top:-70px;
-
 background:var(--card);
-
 padding:50px;
-
 border-radius:30px;
-
+margin-top:-80px;
 position:relative;
 z-index:10;
-
-box-shadow:0 20px 40px rgba(0,0,0,.08);
 }
 
 .toc h2{
@@ -220,121 +176,54 @@ list-style:none;
 }
 
 .toc li{
-margin:12px 0;
-}
-
-.toc a{
-color:var(--accent);
+margin-bottom:12px;
 }
 
 .section-title{
-
 font-size:3rem;
-
-margin:120px 0 80px;
-
-text-align:center;
+margin-bottom:80px;
 }
 
 .story{
-
-margin-bottom:140px;
+margin-bottom:160px;
 }
 
 .story-banner{
-
-width:100%;
-height:550px;
-
-object-fit:cover;
-
-border-radius:30px;
-
-margin-bottom:50px;
-
-box-shadow:0 25px 60px rgba(0,0,0,.15);
+margin-bottom:40px;
 }
 
 .story-tag{
-
 color:var(--accent);
-
-font-size:.85rem;
-
 font-weight:700;
-
 letter-spacing:2px;
+font-size:.8rem;
+margin-bottom:15px;
 }
 
 .story h3{
-
-font-size:2.3rem;
-
-margin:15px 0 25px;
+font-size:2.2rem;
+margin-bottom:30px;
 }
 
 .lead{
-
 font-size:1.3rem;
-
-line-height:1.9;
-
+font-weight:500;
+margin-bottom:40px;
 color:var(--sub);
-
-margin-bottom:35px;
 }
 
-.story p{
-
-font-size:1.05rem;
-
-margin-bottom:20px;
-
-text-align:justify;
-}
-
-footer{
-
-padding:80px 0;
-
+.quote-block{
+padding:100px 40px;
 text-align:center;
-
-border-top:1px solid var(--line);
+background:var(--card);
+border-radius:30px;
+margin:120px 0;
 }
 
-.button{
-
-display:inline-block;
-
-padding:12px 25px;
-
-background:var(--accent);
-
-color:white;
-
-border-radius:999px;
-
-margin:10px;
-}
-
-@media(max-width:768px){
-
-.hero h1{
+.quote-block div{
 font-size:3rem;
-}
-
-.story-banner{
-height:280px;
-}
-
-.section-title{
-font-size:2rem;
-}
-
-.story h3{
-font-size:1.6rem;
-}
-
+font-weight:700;
+line-height:1.6;
 }
 
 </style>
@@ -346,29 +235,34 @@ font-size:1.6rem;
 
 
 <div class="menu">
+<a href="index.html"> ホーム</a>
 
-<a href="index.html">ホムペ</a>
-
-<div class="toggle"
-onclick="document.body.classList.toggle('dark')">
-🌙
 </div>
 
+<div class="toggle">
+🌙
 </div>
 
 </nav>
 
-
 <header class="hero">
 
-<div>
+<div class="hero-content">
 
 <h1>カナダでの暮らし</h1>
 
-<p>
-自由・多様性・包容力
+<p class="hero-sub">
+ONTARIO, CANADA
 </p>
 
+<p class="hero-desc">
+自由・多様性・成長
+</p>
+
+</div>
+
+<div class="scroll-down">
+SCROLL
 </div>
 
 </header>
@@ -380,7 +274,7 @@ onclick="document.body.classList.toggle('dark')">
 <h2>目次</h2>
 
 <ul>
-<li><a href="#school">学校生活</a></li>
+<li><a href="#school">学校</a></li>
 <li><a href="#food">食文化</a></li>
 <li><a href="#life">生活のペースとサービス</a></li>
 <li><a href="#people">人間関係</a></li>
@@ -389,6 +283,7 @@ onclick="document.body.classList.toggle('dark')">
 </div>
 
 </div>
+
 <!-- =========================
 SCHOOL
 ========================= -->
