@@ -1088,39 +1088,161 @@ color:var(--sub);
 
 </section>
 
-<!-- =========================
-FOOTER
-========================= -->
+<style>
 
-<footer>
+.country-nav{
 
-<h3 style="margin-bottom:20px;">
-中国・カナダ・日本をめぐる暮らし
-</h3>
+display:grid;
+
+grid-template-columns:
+1fr 1fr;
+
+gap:25px;
+
+width:min(1200px,90%);
+
+margin:100px auto;
+}
+
+.country-card{
+
+background:white;
+
+padding:40px;
+
+border-radius:24px;
+
+text-decoration:none;
+
+color:#222;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+transition:.3s;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.05);
+}
+
+.country-card:hover{
+
+transform:translateY(-5px);
+}
+
+.country-label{
+
+font-size:14px;
+color:#999;
+}
+
+.country-name{
+
+font-size:28px;
+margin-top:10px;
+}
+
+.country-arrow{
+
+font-size:42px;
+}
+
+footer{
+
+background:#1f1f1f;
+
+color:white;
+
+text-align:center;
+
+padding:80px 20px;
+}
+
+footer h3{
+
+font-size:30px;
+
+margin-bottom:12px;
+}
+
+footer p{
+
+opacity:.8;
+}
+
+@media(max-width:768px){
+
+.country-nav{
+grid-template-columns:1fr;
+}
+
+.country-name{
+font-size:22px;
+}
+
+}
+
+</style>
+
+<section>
+
+<div class="country-nav">
+
+<a href="index.html" class="country-card">
 
 <div>
 
-<a href="index.html" class="button">
-← ホムペ
+<div class="country-label">
+HOME
+</div>
+
+<div class="country-name">
+トップページ
+</div>
+
+</div>
+
+<div class="country-arrow">
+←
+</div>
+
 </a>
 
-<a href="canada.html" class="button">
-カナダでの暮らし →
+<a href="canada.html" class="country-card">
+
+<div>
+
+<div class="country-label">
+NEXT
+</div>
+
+<div class="country-name">
+カナダでの暮らし
+</div>
+
+</div>
+
+<div class="country-arrow">
+→
+</div>
+
 </a>
 
 </div>
 
+</section>
+
+<footer>
+
+
+<p>
+中国・カナダ・日本をめぐる暮らし
+</p>
+
+
 </footer>
-
-<script>
-
-const toggle=document.querySelector('.toggle');
-
-toggle.addEventListener('click',()=>{
-document.body.classList.toggle('dark');
-});
-
-</script>
-
 </body>
 </html>
