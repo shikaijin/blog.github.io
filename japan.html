@@ -1283,9 +1283,103 @@ Japan Reflection
 
 </section>
 
-<!-- ===================================== -->
-<!-- COUNTRY NAV -->
-<!-- ===================================== -->
+<style>
+
+.country-nav{
+
+display:grid;
+
+grid-template-columns:
+1fr 1fr;
+
+gap:25px;
+
+width:min(1200px,90%);
+
+margin:100px auto;
+}
+
+.country-card{
+
+background:white;
+
+padding:40px;
+
+border-radius:24px;
+
+text-decoration:none;
+
+color:#222;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+transition:.3s;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.05);
+}
+
+.country-card:hover{
+
+transform:translateY(-5px);
+}
+
+.country-label{
+
+font-size:14px;
+color:#999;
+}
+
+.country-name{
+
+font-size:28px;
+margin-top:10px;
+}
+
+.country-arrow{
+
+font-size:42px;
+}
+
+footer{
+
+background:#1f1f1f;
+
+color:white;
+
+text-align:center;
+
+padding:80px 20px;
+}
+
+footer h3{
+
+font-size:30px;
+margin-bottom:12px;
+}
+
+footer p{
+
+opacity:.8;
+}
+
+@media(max-width:768px){
+
+.country-nav{
+grid-template-columns:1fr;
+}
+
+.country-name{
+font-size:22px;
+}
+
+}
+
+</style>
 
 <section>
 
@@ -1335,20 +1429,12 @@ NEXT
 
 </section>
 
-<!-- ===================================== -->
-<!-- FOOTER -->
-<!-- ===================================== -->
-
 <footer>
-
 
 <p>
 中国・カナダ・日本をめぐる暮らし
 </p>
 
-<p style="margin-top:10px;">
-© 2026 All Rights Reserved.
-</p>
 
 </footer>
 
