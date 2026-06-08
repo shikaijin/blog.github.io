@@ -47,32 +47,24 @@ transition:.4s;
 }
 
 nav{
-
 position:fixed;
 top:0;
 left:0;
-width:100%;
+right:0;
+z-index:1000;
 
-padding:20px 8%;
+backdrop-filter:blur(20px);
+background:rgba(255,255,255,.75);
 
 display:flex;
 justify-content:space-between;
 align-items:center;
 
-background:rgba(255,255,255,.8);
-
-backdrop-filter:blur(20px);
-
-z-index:999;
+padding:18px 60px;
 }
 
-.dark nav{
-background:rgba(15,23,42,.8);
-}
-
-nav a{
-text-decoration:none;
-color:inherit;
+body.dark nav{
+background:rgba(0,0,0,.75);
 }
 
 .logo{
@@ -81,20 +73,13 @@ font-weight:700;
 
 .menu{
 display:flex;
-gap:25px;
-align-items:center;
+gap:30px;
 }
 
 .toggle{
-
 cursor:pointer;
-
-padding:8px 14px;
-
-border:1px solid var(--line);
-
-border-radius:999px;
 }
+
 
 /* HERO */
 
