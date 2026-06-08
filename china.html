@@ -11,6 +11,23 @@
 
 <style>
 
+:root{
+--bg:#ffffff;
+--text:#111827;
+--sub:#6b7280;
+--card:#f8fafc;
+--line:#e5e7eb;
+--accent:#dc2626;
+}
+
+.dark{
+--bg:#0f172a;
+--text:#f8fafc;
+--sub:#94a3b8;
+--card:#1e293b;
+--line:#334155;
+}
+
 *{
 margin:0;
 padding:0;
@@ -22,101 +39,81 @@ scroll-behavior:smooth;
 }
 
 body{
-
-font-family:"Noto Serif JP",serif;
-
-color:#222;
-
-background:#fafafa;
-
+font-family:"Noto Sans JP",sans-serif;
+background:var(--bg);
+color:var(--text);
 line-height:2;
+transition:.4s;
 }
 
-/* =========================
-NAVIGATION
-========================= */
-
-header{
+nav{
 
 position:fixed;
-
 top:0;
-
+left:0;
 width:100%;
 
-z-index:999;
+padding:20px 8%;
 
-background:rgba(255,255,255,.95);
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+background:rgba(255,255,255,.8);
 
 backdrop-filter:blur(20px);
 
-border-bottom:1px solid #eee;
+z-index:999;
 }
 
-.nav{
+.dark nav{
+background:rgba(15,23,42,.8);
+}
 
-max-width:1200px;
-
-margin:auto;
-
-padding:20px 40px;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
+nav a{
+text-decoration:none;
+color:inherit;
 }
 
 .logo{
-
-font-size:22px;
-
 font-weight:700;
 }
 
-.nav-links{
-
+.menu{
 display:flex;
-
-gap:30px;
+gap:25px;
+align-items:center;
 }
 
-.nav-links a{
+.toggle{
 
-text-decoration:none;
+cursor:pointer;
 
-color:#444;
+padding:8px 14px;
+
+border:1px solid var(--line);
+
+border-radius:999px;
 }
 
-.nav-links a:hover{
-
-color:#9b1c1c;
-}
-
-/* =========================
-HERO
-========================= */
+/* HERO */
 
 .hero{
 
-height:100vh;
+height:80vh;
 
 background:
 linear-gradient(
 rgba(0,0,0,.35),
-rgba(0,0,0,.35)
+rgba(0,0,0,.5)
 ),
-url("images/china-hero.jpg");
+url("assets/images/china/shanghai-night.jpg");
 
 background-size:cover;
-
 background-position:center;
 
 display:flex;
-
 justify-content:center;
-
 align-items:center;
 
 text-align:center;
@@ -124,248 +121,148 @@ text-align:center;
 color:white;
 }
 
-.hero-content h1{
+.hero-content{
+max-width:900px;
+padding:30px;
+}
 
-font-size:72px;
-
+.hero h1{
+font-size:5rem;
 margin-bottom:20px;
 }
 
-.hero-content p{
-
-font-size:24px;
-
-opacity:.95;
+.hero p{
+font-size:1.3rem;
+font-weight:300;
 }
 
-.scroll-down{
+/* CONTENT */
 
-position:absolute;
-
-bottom:40px;
-
-left:50%;
-
-transform:translateX(-50%);
-
-font-size:14px;
-
-letter-spacing:2px;
-
-animation:float 2s infinite;
-}
-
-@keyframes float{
-
-0%{transform:translate(-50%,0);}
-50%{transform:translate(-50%,10px);}
-100%{transform:translate(-50%,0);}
-}
-
-/* =========================
-INTRO
-========================= */
-
-.intro{
-
-max-width:900px;
-
+.container{
+width:min(950px,90%);
 margin:auto;
-
-padding:120px 40px;
 }
 
-.intro h2{
-
-font-size:48px;
-
-margin-bottom:40px;
-
-color:#9b1c1c;
+section{
+padding:100px 0;
 }
-
-.intro p{
-
-font-size:20px;
-
-margin-bottom:25px;
-}
-
-/* =========================
-TOC
-========================= */
 
 .toc{
 
-padding:80px 0;
+background:var(--card);
 
-background:white;
+padding:40px;
+
+border-radius:24px;
+
+margin-top:-60px;
+
+position:relative;
+z-index:10;
+}
+
+.toc h2{
+margin-bottom:20px;
 }
 
 .toc ul{
-
-max-width:900px;
-
-margin:auto;
-
-display:grid;
-
-grid-template-columns:
-repeat(4,1fr);
-
-gap:20px;
-
 list-style:none;
+}
 
-padding:0 20px;
+.toc li{
+margin:12px 0;
 }
 
 .toc a{
-
-display:block;
-
-padding:20px;
-
-text-align:center;
-
 text-decoration:none;
-
-color:#222;
-
-background:#f5f5f5;
-
-border-radius:15px;
-
-transition:.3s;
-}
-
-.toc a:hover{
-
-background:#9b1c1c;
-
-color:white;
-}
-
-/* =========================
-SECTION
-========================= */
-
-.section{
-
-max-width:900px;
-
-margin:auto;
-
-padding:120px 40px;
+color:var(--accent);
 }
 
 .section-title{
 
-font-size:48px;
+font-size:2.4rem;
 
-margin-bottom:60px;
+margin-bottom:50px;
 
-color:#9b1c1c;
+padding-bottom:15px;
+
+border-bottom:2px solid var(--line);
 }
 
 .story{
 
-margin-bottom:80px;
+margin-bottom:90px;
 }
 
 .story h3{
 
-font-size:32px;
+font-size:1.5rem;
 
 margin-bottom:25px;
 }
 
 .story p{
 
+font-size:1.05rem;
+
 margin-bottom:20px;
 
-font-size:18px;
+text-align:justify;
 }
 
-/* =========================
-IMAGE
-========================= */
+/* image */
 
 .story-image{
-
-margin:60px 0;
-}
-
-.story-image img{
 
 width:100%;
 
 border-radius:24px;
 
-display:block;
+margin:40px 0;
 }
 
-.caption{
-
-text-align:center;
-
-margin-top:12px;
-
-color:#777;
-
-font-size:14px;
-}
-
-/* =========================
-QUOTE
-========================= */
-
-.quote{
-
-background:white;
-
-padding:80px;
-
-border-left:8px solid #9b1c1c;
-
-margin:100px 0;
-
-font-size:28px;
-
-font-style:italic;
-}
-
-/* =========================
-RESPONSIVE
-========================= */
-
-@media(max-width:768px){
-
-.hero-content h1{
-
-font-size:48px;
-}
-
-.toc ul{
-
-grid-template-columns:
-1fr 1fr;
-}
-
-.section-title{
-
-font-size:38px;
-}
-
-.story h3{
-
-font-size:26px;
-}
-
-}
 
 </style>
 </head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+<a href="index.html">
+Shikai Jin
+</a>
+</div>
+
+<div class="menu">
+
+<a href="index.html">Home</a>
+
+<div class="toggle"
+onclick="document.body.classList.toggle('dark')">
+🌙
+</div>
+
+</div>
+
+</nav>
+
+<header class="hero">
+
+<div class="hero-content">
+
+<h1>中国での暮らし</h1>
+
+<p>
+熱気・努力・つながり
+</p>
+
+</div>
+
+</header>
+
+
 
 <body>
 
