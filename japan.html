@@ -129,57 +129,6 @@ background:white;
 margin:auto;
 }
 
-/* =========================
-TOC
-========================= */
-
-.toc{
-
-padding:80px 0;
-
-background:white;
-}
-
-.toc ul{
-
-max-width:900px;
-
-margin:auto;
-
-display:grid;
-
-grid-template-columns:
-repeat(4,1fr);
-
-gap:20px;
-
-list-style:none;
-}
-
-.toc a{
-
-display:block;
-
-padding:20px;
-
-text-align:center;
-
-text-decoration:none;
-
-color:#222;
-
-background:#f5f5f5;
-
-border-radius:15px;
-
-transition:.3s;
-}
-
-.toc a:hover{
-
-background:#9b1c1c;
-color:white;
-}
 
 /* =========================
 SECTION
@@ -364,7 +313,7 @@ JAPAN
 
 <li>
 <a href="#school">
-学校
+学校生活
 </a>
 </li>
 
@@ -383,6 +332,77 @@ JAPAN
 </ul>
 
 </nav>
+
+<style>
+
+/* =========================
+TOC
+========================= */
+
+.toc{
+
+padding:80px 0;
+
+background:white;
+}
+
+.toc ul{
+
+max-width:900px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:
+repeat(4,1fr);
+
+gap:20px;
+
+list-style:none;
+
+padding:0;
+}
+
+.toc a{
+
+display:block;
+
+padding:20px;
+
+text-align:center;
+
+text-decoration:none;
+
+color:#222;
+
+background:#f5f5f5;
+
+border-radius:15px;
+
+font-weight:600;
+
+transition:.3s;
+}
+
+.toc a:hover{
+
+background:#555;
+
+color:white;
+}
+
+@media(max-width:768px){
+
+.toc ul{
+
+grid-template-columns:
+1fr 1fr;
+}
+
+}
+
+</style>
 
 <!-- INTRO -->
 
