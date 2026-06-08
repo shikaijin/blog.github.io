@@ -40,7 +40,7 @@ HERO
 ========================= */
 
 .hero{
-
+margin-top:70px;
 height:100vh;
 position:relative;
 overflow:hidden;
@@ -127,6 +127,89 @@ height:70px;
 background:white;
 
 margin:auto;
+}
+/* ==========================
+NAVBAR
+========================== */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    z-index:9999;
+
+    backdrop-filter:blur(20px);
+
+    background:
+    rgba(255,255,255,.75);
+
+    border-bottom:
+    1px solid rgba(0,0,0,.05);
+}
+
+.nav-container{
+
+    width:min(1200px,92%);
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    height:70px;
+}
+
+.logo{
+
+    text-decoration:none;
+
+    color:#111;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+}
+
+.nav-links{
+
+    display:flex;
+
+    gap:35px;
+
+    list-style:none;
+}
+
+.nav-links a{
+
+    text-decoration:none;
+
+    color:#333;
+
+    font-size:15px;
+
+    transition:.3s;
+}
+
+.nav-links a:hover{
+
+    color:#9b1c1c;
+}
+
+.nav-links .active{
+
+    color:#9b1c1c;
+
+    font-weight:600;
 }
 
 
@@ -263,6 +346,25 @@ line-height:1.8;
 </head>
 
 <body>
+<nav class="navbar">
+
+    <div class="nav-container">
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    ホーム
+                </a>
+            </li>
+
+
+        </ul>
+
+    </div>
+
+</nav>
 
 <!-- HERO -->
 
