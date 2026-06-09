@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>自己紹介 | ジン　シカイ</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:
+"Hiragino Sans",
+"Yu Gothic",
+sans-serif;
+
+background:#fafafa;
+
+color:#222;
+
+line-height:1.9;
+}
+
+/* ==========================
+NAVBAR
+========================== */
+
+.navbar{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+background:
+rgba(255,255,255,.9);
+
+backdrop-filter:blur(20px);
+
+border-bottom:
+1px solid rgba(0,0,0,.05);
+
+z-index:999;
+}
+
+.nav-container{
+
+width:min(1200px,92%);
+margin:auto;
+
+height:70px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+
+text-decoration:none;
+color:#111;
+
+font-size:22px;
+font-weight:700;
+}
+
+.nav-links{
+
+display:flex;
+gap:30px;
+
+list-style:none;
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+color:#444;
+
+transition:.3s;
+}
+
+.nav-links a:hover{
+
+color:#000;
+}
+
+/* ==========================
+HERO
+========================== */
+
+.hero{
+
+height:100vh;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+text-align:center;
+
+background:
+linear-gradient(
+180deg,
+#ffffff,
+#f6f6f6
+);
+
+padding:0 20px;
+}
+
+.hero-content{
+
+max-width:900px;
+}
+
+.hero h1{
+
+font-size:80px;
+
+margin-bottom:20px;
+}
+
+.hero h2{
+
+font-size:28px;
+
+font-weight:300;
+
+color:#666;
+
+margin-bottom:40px;
+}
+
+.hero p{
+
+font-size:22px;
+
+line-height:2;
+
+color:#444;
+}
+
+/* ==========================
+SECTION
+========================== */
+
+.section{
+
+padding:120px 0;
+}
+
+.container{
+
+width:min(900px,90%);
+margin:auto;
+}
+
+.section-title{
+
+font-size:52px;
+
+margin-bottom:60px;
+
+text-align:center;
+}
+
+/* ==========================
+CARDS
+========================== */
+
+.cards{
+
+display:grid;
+
+grid-template-columns:
+repeat(3,1fr);
+
+gap:30px;
+}
+
+.card{
+
+background:white;
+
+padding:40px;
+
+border-radius:24px;
+
+box-shadow:
+0 15px 40px
+rgba(0,0,0,.05);
+}
+
+.card h3{
+
+font-size:24px;
+
+margin-bottom:20px;
+}
+
+.card p{
+
+color:#666;
+}
+
+/* ==========================
+TIMELINE
+========================== */
+
+.timeline{
+
+max-width:800px;
+
+margin:auto;
+}
+
+.timeline-item{
+
+padding:30px 0;
+
+border-left:
+2px solid #ddd;
+
+padding-left:30px;
+
+position:relative;
+}
+
+.timeline-item::before{
+
+content:"";
+
+width:14px;
+height:14px;
+
+background:#222;
+
+border-radius:50%;
+
+position:absolute;
+
+left:-8px;
+top:40px;
+}
+
+.timeline-year{
+
+font-size:18px;
+
+font-weight:bold;
+
+margin-bottom:10px;
+}
+
+/* ==========================
+QUOTE
+========================== */
+
+.quote{
+
+background:#111;
+
+color:white;
+
+padding:120px 20px;
+
+text-align:center;
+}
+
+.quote p{
+
+font-size:36px;
+
+line-height:1.8;
+
+font-weight:300;
+}
+
+/* ==========================
+FOOTER
+========================== */
+
+footer{
+
+padding:80px 20px;
+
+text-align:center;
+
+color:#888;
+}
+
+/* ==========================
+MOBILE
+========================== */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:50px;
+}
+
+.hero h2{
+font-size:22px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.section-title{
+font-size:36px;
+}
+
+.quote p{
+font-size:26px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<div class="nav-container">
+
+<a href="index.html" class="logo">
+Shikai Jin
+</a>
+
+<ul class="nav-links">
+
+<li><a href="index.html">ホーム</a></li>
+
+
+</ul>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>
+</h1>
+
+<h2>
+</h2>
+
+<p>
+
+上海で生まれ育ち、<br>
+高校からカナダへ渡り、<br>
+現在は日本で学んでいます。
+
+<br><br>
+
+三つの国で生活した経験を通して、<br>
+異なる文化や価値観に触れながら成長してきました。
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="section">
+
+<div class="container">
+
+<h2 class="section-title">
+私について
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>🇨🇳 中国</h3>
+
+<p>
+
+上海で幼少期から高校一年生まで過ごしました。
+
+にぎやかな都市生活と努力を重視する教育環境の中で育ちました。
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🇨🇦 Canada</h3>
+
+<p>
+
+高校・大学時代をカナダで過ごしました。
+
+多様性と自由を尊重する社会から多くを学びました。
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🇯🇵 日本</h3>
+
+<p>
+
+現在は日本で学びながら生活しています。
+
+思いやりや周囲への配慮を大切にする文化に魅力を感じています。
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TIMELINE -->
+
+<section class="section">
+
+<div class="container">
+
+<h2 class="section-title">
+My Journey
+</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+<div class="timeline-year">
+中国・上海
+</div>
+
+<p>
+幼少期〜高校一年生
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<div class="timeline-year">
+カナダ
+</div>
+
+<p>
+高校・大学
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<div class="timeline-year">
+日本
+</div>
+
+<p>
+現在
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- QUOTE -->
+
+<section class="quote">
+
+<p>
+
+「当たり前は国によって違う。<br>
+だからこそ、違いを知ることは面白い。」
+
+</p>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+
+© 2026 Shikai Jin
+
+</p>
+
+</footer>
+
+</body>
+</html>
