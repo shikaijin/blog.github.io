@@ -95,177 +95,144 @@ border:1px solid var(--line);
 border-radius:999px;
 }
 
-/* ---------------- HERO ---------------- */
-
 .hero{
 
-position:relative;
+    position:relative;
 
-height:100vh;
+    height:100vh;
 
-background:
-linear-gradient(
-rgba(0,0,0,.35),
-rgba(0,0,0,.55)
-),
-url("images/hero.jpg");
+    overflow:hidden;
+}
 
-background-size:cover;
-background-position:center;
-background-attachment:fixed;
+.hero-slider{
 
-display:flex;
-justify-content:center;
-align-items:center;
+    position:absolute;
 
-text-align:center;
+    inset:0;
+}
 
-overflow:hidden;
+.slide{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    opacity:0;
+
+    transition:
+    opacity 2s ease;
+}
+
+.slide.active{
+
+    opacity:1;
+}
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,.25),
+    rgba(0,0,0,.65)
+    );
 }
 
 .hero-content{
 
-position:relative;
-z-index:2;
+    position:absolute;
 
-max-width:900px;
-padding:30px;
-color:white;
+    top:50%;
+    left:50%;
 
+    transform:
+    translate(-50%,-50%);
+
+    text-align:center;
+
+    color:white;
+
+    z-index:10;
 }
 
-.hero-tag{
+.hero-subtitle{
 
-display:inline-block;
+    letter-spacing:4px;
 
-padding:10px 22px;
+    margin-bottom:20px;
 
-border:1px solid rgba(255,255,255,.4);
-
-border-radius:999px;
-
-backdrop-filter:blur(12px);
-
-font-size:.85rem;
-
-letter-spacing:3px;
-
-margin-bottom:30px;
-
-animation:fadeUp 1s ease;
+    opacity:.8;
 }
 
 .hero h1{
 
-font-size:5rem;
-font-weight:700;
-line-height:1.15;
+    font-size:72px;
 
-margin-bottom:25px;
-
-animation:fadeUp 1.2s ease;
+    margin-bottom:30px;
 }
 
-.hero p{
+.hero-description{
 
-font-size:1.5rem;
-font-weight:300;
-line-height:1.8;
+    font-size:24px;
 
-animation:fadeUp 1.5s ease;
+    line-height:1.8;
 }
-
-.hero::after{
-
-content:"";
-
-position:absolute;
-left:0;
-right:0;
-bottom:0;
-
-height:200px;
-
-background:
-linear-gradient(
-to bottom,
-transparent,
-var(--bg)
-);
-
-}
-
 /* Scroll Down */
 
-.scroll-indicator{
 
-position:absolute;
+.scroll-down{
 
-bottom:40px;
-left:50%;
+    position:absolute;
 
-transform:translateX(-50%);
+    bottom:40px;
+    left:50%;
 
-display:flex;
-flex-direction:column;
-align-items:center;
+    transform:translateX(-50%);
 
-gap:12px;
+    color:white;
 
-color:white;
+    text-align:center;
 
-text-decoration:none;
-
-z-index:5;
-
-animation:float 2s infinite;
+    z-index:10;
 }
 
-.mouse{
+.scroll-down span{
 
-width:30px;
-height:50px;
+    display:block;
 
-border:2px solid white;
+    width:1px;
+    height:80px;
 
-border-radius:20px;
+    background:white;
 
-display:flex;
-justify-content:center;
+    margin:auto;
 
-padding-top:8px;
+    animation:scroll 2s infinite;
 }
 
-.wheel{
+@keyframes scroll{
 
-width:4px;
-height:10px;
-
-background:white;
-
-border-radius:10px;
-
-animation:scrollwheel 1.5s infinite;
-}
-
-@keyframes scrollwheel{
 0%{
-opacity:1;
-transform:translateY(0);
-}
-100%{
-opacity:0;
-transform:translateY(12px);
-}
+transform:scaleY(0);
+transform-origin:top;
 }
 
-@keyframes float{
-0%,100%{
-transform:translate(-50%,0);
-}
 50%{
-transform:translate(-50%,10px);
+transform:scaleY(1);
+transform-origin:top;
 }
+
+100%{
+transform:scaleY(0);
+transform-origin:bottom;
+}
+
 }
 
 /* ---------------- CONTENT ---------------- */
@@ -532,30 +499,45 @@ Shikai Jin
 
 <header class="hero">
 
-<div class="hero-content">
+    <div class="hero-slider">
 
+        <img src="image/shanghai.jpg" class="slide active">
 
-<h1>
-中国・カナダ・日本をめぐる暮らし
-</h1>
+        <img src="image/canada.jpg" class="slide">
 
-<p>
-上海の熱気、<br>
-カナダの自由、<br>
-日本のやさしさ
-</p>
+        <img src="image/japan.jpg" class="slide">
 
-</div>
+    </div>
 
-<a href="#about" class="scroll-indicator">
+    <div class="overlay"></div>
 
-<div class="mouse">
-<div class="wheel"></div>
-</div>
+    <div class="hero-content">
 
-<span>Scroll Down</span>
+        <p class="hero-subtitle">
+            Shikai Jin
+        </p>
 
-</a>
+        <h1>
+            中国・カナダ・日本をめぐる暮らし
+        </h1>
+
+        <p class="hero-description">
+
+            上海のにぎやかさ。<br>
+            カナダの自由。<br>
+            日本の思いやり。
+
+        </p>
+
+    </div>
+
+    <div class="scroll-down">
+
+        <span></span>
+
+        <p>SCROLL</p>
+
+    </div>
 
 </header>
 
@@ -772,6 +754,30 @@ document.body.classList.toggle("dark");
 }
 
 </script>
+<script>
 
+const slides =
+document.querySelectorAll(".slide");
+
+let current = 0;
+
+setInterval(() => {
+
+    slides[current]
+    .classList.remove("active");
+
+    current++;
+
+    if(current >= slides.length){
+
+        current = 0;
+    }
+
+    slides[current]
+    .classList.add("active");
+
+},5000);
+
+</script>
 </body>
 </html>
